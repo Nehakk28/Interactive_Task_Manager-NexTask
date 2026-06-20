@@ -1,0 +1,136 @@
+/* DARK MODE */
+
+.dark{
+background:#0f172a;
+color:white;
+}
+
+/* MAIN AREA */
+
+.dark .main-content{
+background:#0f172a;
+}
+
+/* CARDS */
+
+.dark .card,
+.dark .task-card,
+.dark .feature-card,
+.dark .task-form,
+.dark .filters button,
+.dark .search-box,
+.dark .theme-btn,
+.dark .modal-content{
+background:#1e293b;
+color:white;
+}
+
+/* INPUTS */
+
+.dark .task-form input,
+.dark .task-form select,
+.dark .search-box input{
+background:#334155;
+color:white;
+border:1px solid #475569;
+}
+
+/* SEARCH */
+
+.dark .search-box i{
+color:white;
+}
+
+.dark .search-box input::placeholder{
+color:#cbd5e1;
+}
+
+/* TEXT */
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4{
+color:white;
+}
+
+.dark p,
+.dark small{
+color:#cbd5e1;
+}
+
+/* FILTERS */
+
+.dark .filters button{
+color:white;
+}
+
+/* TASKS */
+
+.dark .completed{
+color:#91a1b9;
+}
+
+.dark .task-actions button{
+background:#334155;
+color:rgb(228, 216, 216);
+}
+
+/* PROGRESS */
+
+.dark .progress-container{
+background:#334155;
+}
+
+/* MODAL */
+
+.dark #cancelDelete{
+background:#475569;
+color:white;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#94a3b8;
+border-radius:20px;
+}
+
+/* TRANSITIONS */
+
+body,
+.card,
+.task-card,
+.feature-card,
+.task-form,
+.search-box,
+.filters button,
+.theme-btn,
+.modal-content{
+transition:all .3s ease;
+}
+
+
+.deadline-item{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.dark #dueDate{
+    color-scheme: dark;
+}
+
+.dark #priorityFilter{
+    background:#1e293b;
+    color:white;
+}
+
+.dark #priorityFilter option{
+    background:#1e293b;
+    color:white;
+}

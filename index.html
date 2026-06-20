@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexTask</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/theme.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="app-container">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <!-- <img src="images/nextask_logo.png" alt="NexTask Logo"> -->
+        <i class="fa-solid fa-list-check"></i>
+        <span>NexTask</span>
+    </div>
+
+    <ul class="nav-menu">
+
+        <li class="nav-item active"
+            onclick="showSection('dashboard')">
+
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+
+        </li>
+
+        <li class="nav-item"
+            onclick="showSection('tasks')">
+
+            <i class="fa-solid fa-list-check"></i>
+            <span>Tasks</span>
+
+        </li>
+
+        <li class="nav-item"
+            onclick="showSection('calendar')">
+
+            <i class="fa-solid fa-calendar"></i>
+            <span>Calendar</span>
+
+        </li>
+
+        <li class="nav-item"
+            onclick="showSection('statistics')">
+
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Statistics</span>
+
+        </li>
+
+    </ul>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+
+<main class="main-content">
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <div></div>
+
+        <button
+            id="themeBtn"
+            class="theme-btn">
+
+            <i class="fa-solid fa-moon"></i>
+
+        </button>
+
+    </div>
+
+    <!-- DASHBOARD -->
+
+    <section
+        id="dashboard"
+        class="section active-section">
+
+        <div class="welcome-card">
+
+            <h1>Welcome to NexTask 👋</h1>
+
+            <p>
+               NexTask helps you organize tasks, track progress, and boost productivity with a simple and intuitive interface.
+            </p>
+            <p>🚀 Organize Your Work | Track Progress | Achieve Goals</p>
+
+            <div id="currentDate"></div>
+
+        </div>
+
+        <div class="dashboard-cards">
+
+            <div class="card">
+
+                <h3>Total Tasks</h3>
+
+                <span id="totalTasks">0</span>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Completed</h3>
+
+                <span id="completedTasks">0</span>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Pending</h3>
+
+                <span id="pendingTasks">0</span>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Completion</h3>
+
+                <span id="completionRate">0%</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TASKS -->
+
+    <section
+        id="tasks"
+        class="section">
+
+        <h1>Task Manager</h1>
+
+        <!-- SEARCH BAR ONLY HERE -->
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search tasks...">
+
+        </div>
+
+        <br>
+
+        <div class="task-form">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter task">
+
+            <select id="priority">
+
+                <option value="High">High</option>
+
+                <option value="Medium">
+                    Medium
+                </option>
+
+                <option value="Low">
+                    Low
+                </option>
+
+            </select>
+
+            <input
+                type="date"
+                id="dueDate">
+
+            <button id="addBtn">
+
+                <i class="fa-solid fa-plus"></i>
+                Add Task
+
+            </button>
+
+        </div>
+
+        <div class="filters">
+
+            <button id="allBtn">
+                All
+            </button>
+
+            <button id="activeBtn">
+                Active
+            </button>
+
+            <button id="completedBtn">
+                Completed
+            </button>
+
+            <button id="clearBtn">
+                Clear All
+            </button>
+            <input type="file" id="importFile" hidden>
+
+        <button id="importBtn"> Import Tasks </button>
+
+        </div>
+        <div class="priority-filter">
+            <select id="priorityFilter">
+                <option value="All">All Priorities</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+        </div>
+            
+
+        <div id="taskList"></div>
+
+
+    </section>
+
+    <!-- CALENDAR -->
+
+    <section
+        id="calendar"
+        class="section">
+
+        <h1>Upcoming Deadlines</h1>
+        
+        <div class="feature-card">
+
+            <div id="deadlineList">
+
+                No deadlines available
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- STATISTICS -->
+
+    <section
+        id="statistics"
+        class="section">
+
+        <h1>Statistics</h1>
+
+        <div class="dashboard-cards">
+
+            <div class="card">
+
+                <h3>Total Tasks</h3>
+
+                <span id="statsTotal">
+                    0
+                </span>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Completed</h3>
+
+                <span id="statsCompleted">
+                    0
+                </span>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Pending</h3>
+
+                <span id="statsPending">
+                    0
+                </span>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Completion</h3>
+
+                <span id="statsRate">
+                    0%
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="feature-card">
+
+            <h3>Task Progress</h3>
+
+            <div class="progress-container">
+
+                <div
+                    id="progressBar"
+                    class="progress-bar">
+
+                </div>
+
+            </div>
+
+            <p id="progressText">
+                0% Completed
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+    <h3>Task Distribution</h3>
+
+    <div class="chart-container">
+
+        <canvas id="taskChart"></canvas>
+
+    </div>
+
+</div>
+
+    </section>
+
+</main>
+
+</div>
+
+<!-- CUSTOM DELETE MODAL -->
+
+<div
+    id="customModal"
+    class="modal">
+
+<div class="modal-content">
+
+    <h2>
+        Delete All Tasks?
+    </h2>
+
+    <p>
+        This action cannot be undone.
+    </p>
+
+    <div class="modal-buttons">
+
+        <button
+            id="confirmDelete">
+
+            Delete
+
+        </button>
+
+        <button
+            id="cancelDelete">
+
+            Cancel
+
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- JS FILES -->
+
+<script src="js/storage.js"></script>
+
+<script src="js/utils.js"></script>
+
+<script src="js/ui.js"></script>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
