@@ -299,8 +299,39 @@ document.addEventListener("keydown", (e) => {
 
 });
 
-// Import / Restore Task
+// Restore Task
 
+
+document
+.getElementById("exportBtn")
+.addEventListener("click", () => {
+
+    const data =
+    JSON.stringify(tasks, null, 2);
+
+    const blob =
+    new Blob(
+        [data],
+        {
+            type: "application/json"
+        }
+    );
+
+    const link =
+    document.createElement("a");
+
+    link.href =
+    URL.createObjectURL(blob);
+
+    link.download =
+    "tasks_backup.json";
+
+    link.click();
+
+});
+
+
+// import Task
 
 document
 .getElementById("importBtn")
@@ -344,14 +375,15 @@ document
 
             renderTasks(tasks);
 
-            showToast(
-                "Tasks Imported"
+            alert(
+                "Tasks restored successfully!"
             );
 
-        }catch{
+        }
+        catch(error){
 
             alert(
-                "Invalid JSON File"
+                "Invalid backup file!"
             );
 
         }
@@ -361,6 +393,7 @@ document
     reader.readAsText(file);
 
 });
+
 
 // priority Filter
 
