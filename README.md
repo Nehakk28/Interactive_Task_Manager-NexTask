@@ -44,9 +44,6 @@ A modern and responsive task management web application built using HTML, CSS, a
 - CSS3
 - JavaScript
 
-## 📂 Project Structure
-
-
 ## ⚙️ Installation & Setup
 
 1. Clone Repository
@@ -75,9 +72,33 @@ or use VS Code Live Server for a better development experience.
 
 ## 📸 Screenshots
 
-Dashboard
-Task Management Page
-Calendar Section
-Statistics Page
-Dark Mode Interface
-Task Import/Export Functionality
+### 1. Dashboard
+Displays task overview, statistics, and completion metrics.
+
+![Dashboard](images/dashboard.png)
+
+### 2. Task Management
+Add, edit, delete, filter, and organize tasks.
+
+![Task Management](images/task.png)
+
+### 3. Calendar & Deadlines
+View upcoming task deadlines.
+
+![Calendar](images/calender.png)
+
+### 4. Statistics & Analytics
+Visual representation of completed and pending tasks.
+
+![Statistics](images/statistics.png)
+
+### 5. Dark Mode Interface
+Application supports dark mode for better user experience.
+
+![Dark Dashboard](images/b-dashboard.png)
+
+![Dark Tasks](images/b-task.png)
+
+![Dark Calendar](images/b-calender.png)
+
+![Dark Statistics](images/b-statistics.png)
