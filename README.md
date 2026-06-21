@@ -91,7 +91,7 @@ View upcoming task deadlines.
 Visual representation of completed and pending tasks.
 
 ![Statistics](images/statistics.png)
-
+![Statistics](images/statistics1.png)
 ### 5. Dark Mode Interface
 Application supports dark mode for better user experience.
 
